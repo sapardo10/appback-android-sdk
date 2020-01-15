@@ -1,2 +1,2 @@
-include ':app', ':appback'
+include ':app', ':appbacksdk'
 rootProject.name='ExampleApplication'
