@@ -9,6 +9,9 @@ interface TranslationDao {
     @Query("SELECT * FROM translation")
     fun getAll(): List<Translation>
 
+    @Query("SELECT * FROM translation where `key` like '%' || :router || '%'")
+    fun getAllByRouter(router: String): List<Translation>
+
     @Query("SELECT * FROM translation where  `key` = :key LIMIT 1")
     suspend fun findTranslationAsync(key: String): Translation
 

@@ -10,6 +10,9 @@ interface ToggleDao {
     @Query("SELECT * FROM toggle")
     fun getAll(): List<Toggle>
 
+    @Query("SELECT * FROM toggle where `key` like '%' || :router || '%'")
+    fun getAllByRouter(router: String): List<Toggle>
+
     @Query("SELECT * FROM toggle where  `key` = :key LIMIT 1")
     suspend fun findToggleAsync(key: String): Toggle
 
